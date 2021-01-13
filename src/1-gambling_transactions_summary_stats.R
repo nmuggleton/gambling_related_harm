@@ -24,7 +24,6 @@ library(knitr)
 
 # Outcomes (unit of analysis: customer x month). Carbon copy of GDW table.
 # Extracted using FastExport.
-# NM: Add Aster
 data <- fread("data/gambling_variables.txt", na.string = "?")
 
 # Clean data --------------------------------------------------------------
@@ -67,7 +66,8 @@ data[, (newvars) := lapply(.SD, function(x) x), .SDcols = vars]
 ### If customer didn't gamble this month, then NA, else keep value
 data[, 
      (newvars) := lapply(.SD, function(x) 
-       ifelse(gambling_dummy == 0, NA, x)), .SDcols = newvars]
+       ifelse(gambling_dummy == 0, NA, x)), 
+     .SDcols = newvars]
 
 ### Now we'll calculate:
 ### * Total number of gambling transactions in 2018 (N_transactions)
@@ -163,8 +163,7 @@ panel_b <- data.melt[,
                        p50 = quantile(value, probs = .50, na.rm = T),
                        p75 = quantile(value, probs = .75, na.rm = T),
                        p90 = quantile(value, probs = .95, na.rm = T),
-                       p99 = quantile(value, probs = .99, na.rm = T)
-                     ),
+                       p99 = quantile(value, probs = .99, na.rm = T)),
                      by = variable]
 
 
