@@ -140,8 +140,7 @@ a <- panela[,
               p50  = lapply(.SD, quantile, probs = .50),
               p75  = lapply(.SD, quantile, probs = .75),
               p90  = lapply(.SD, quantile, probs = .90),
-              p99  = lapply(.SD, quantile, probs = .99)
-            ),
+              p99  = lapply(.SD, quantile, probs = .99)),
             .SDcols = cols]
 
 a$cols <- factor(a$cols, 
@@ -170,8 +169,7 @@ b <- panelb[,
               p50  = lapply(.SD, quantile, probs = .50, na.rm = T),
               p75  = lapply(.SD, quantile, probs = .75, na.rm = T),
               p90  = lapply(.SD, quantile, probs = .90, na.rm = T),
-              p99  = lapply(.SD, quantile, probs = .99, na.rm = T)
-            ),
+              p99  = lapply(.SD, quantile, probs = .99, na.rm = T)),
             .SDcols = cols]
 
 
@@ -214,8 +212,7 @@ a <- panela[,
               p50  = lapply(.SD, quantile, probs = .50, na.rm = T),
               p75  = lapply(.SD, quantile, probs = .75, na.rm = T),
               p90  = lapply(.SD, quantile, probs = .90, na.rm = T),
-              p99  = lapply(.SD, quantile, probs = .99, na.rm = T)
-            ),
+              p99  = lapply(.SD, quantile, probs = .99, na.rm = T)),
             .SDcols = cols]
 
 a$cols <- factor(a$cols, 
